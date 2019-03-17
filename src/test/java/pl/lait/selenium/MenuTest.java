@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+@Ignore 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING) //żeby była kolejność wykonywania testów ALFABETYCZNIE bo tak sobie selenium losowo wybiera
 public class MenuTest {               //zeby działalo klasa musi konczyc się na test
 
@@ -57,7 +58,7 @@ public class MenuTest {               //zeby działalo klasa musi konczyc się n
 	@Ignore
 		@Test
 		public void leftMenu() {
-			driver.findElement(By.linkText("Home")).click(); 
+			driver.findElement(By.linkText("Home")).click();                   //linkText widnieje pod znacznikiem href w htmlu
 			driver.findElement(By.linkText("Flights")).click(); 
 			driver.findElement(By.linkText("Hotels")).click(); 
 			driver.findElement(By.linkText("Car Rentals")).click(); 
@@ -150,8 +151,11 @@ public class MenuTest {               //zeby działalo klasa musi konczyc się n
 			driver.findElement(By.name("reserveFlights")).click();
 			
 			
-			
-			
+			driver.findElement(By.name("passFirst0")).sendKeys("Jan");
+			driver.findElement(By.name("passLast0")).sendKeys("Kowalski");
+			driver.findElement(By.name("creditnumber")).sendKeys("123456");
+				
+			driver.findElement(By.name("buyFlights")).click();
 			
 		}
 	
